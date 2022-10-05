@@ -1,4 +1,4 @@
-#define EXPORT_SAMPLE 
+#define EXPORT_SAMPLE
 
 #include <cmath>
 #include <cstdint>
@@ -139,16 +139,16 @@ namespace dll {
 		for (; buf < end; ++buf) *buf = value;
 		return buf;
 	}
-	
+
 	PORT void* sample_for_16bit(void* buf, int len){
-		return sample_for_bit<short>(buf,len);		
+		return sample_for_bit<short>(buf,len);
 	}
 
 	PORT void* sample_for_32bit(void* buf, int len) {
 		return sample_for_bit<int>(buf,len);
 	}
 
-	PORT void* sample_for_64bit(void* buf, int len) 
+	PORT void* sample_for_64bit(void* buf, int len)
 	{
 		return sample_for_bit<long long>(buf,len);
 	}

@@ -17,14 +17,13 @@ add_library(linkdll SHARED IMPORTED)
 if(WIN32)
     #set imported location
     if(MSVC)
-        file(GLOB_RECURSE LIB_STATIC_EXPORTED "${CMAKE_ARCHIVE_OUTPUT_DIRECTORY}/*${PROJECT_DLL_NAME}.lib")
+        set(LIB_STATIC_EXPORTED "${CMAKE_ARCHIVE_OUTPUT_DIRECTORY}/${PROJECT_DLL_NAME}.lib")
     else(CMAKE_COMPILER_IS_GNUCXX) # GCC compiller
-        file(GLOB_RECURSE LIB_STATIC_EXPORTED "${CMAKE_ARCHIVE_OUTPUT_DIRECTORY}/*${PROJECT_DLL_NAME}.dll.a")
+        set(LIB_STATIC_EXPORTED "${CMAKE_ARCHIVE_OUTPUT_DIRECTORY}/lib${PROJECT_DLL_NAME}.dll.a")
     endif()
-
     set_target_properties(linkdll PROPERTIES 
         IMPORTED_IMPLIB "${LIB_STATIC_EXPORTED}"
-        IMPORTED_LOCATION "*${PROJECT_DLL_NAME}")
+        IMPORTED_LOCATION "${PROJECT_DLL_NAME}.dll")
 
 else(UNIX)
     set_target_properties(linkdll PROPERTIES

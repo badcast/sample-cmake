@@ -95,5 +95,6 @@ int main() {
   test(); // Run test
   
   std::cout << "Completed operations from DLL" << std::endl;
+  std::cout.flush();
   return 0;
 }
