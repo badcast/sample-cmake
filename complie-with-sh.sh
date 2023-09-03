@@ -40,7 +40,7 @@ g++ -DNDEBUG "$obj_dir/sample_bin.o" -L. -l sample_lib-shared -o $ex_shared
 #check
 if [ ! $? == 0 ]; then
     echo "Compilling error"
-    exit $?
+    exit 1
 else
     echo "Compilling complete"
 fi
